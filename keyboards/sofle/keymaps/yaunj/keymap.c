@@ -1,12 +1,7 @@
 #include "yaunj.h"
 
 enum custom_keycodes {
-    KC_QWRT = SAFE_RANGE,
-    KC_CLMK,
-    KC_LOWER,
-    KC_RAISE,
-    KC_ADJUST,
-    KC_PRVWD,
+    KC_PRVWD = NEW_SAFE_RANGE,
     KC_NXTWD,
     KC_LSTRT,
     KC_LEND,
@@ -16,19 +11,19 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY] = LAYOUT( \
-  KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC, \
+  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,  \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS, \
   CTL_ESC, Q_M_A,   Q_M_S,   Q_M_D,   Q_M_F,   KC_G,                      KC_H,    Q_M_J,   Q_M_K,   Q_M_L,   Q_M_SC,  KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MUTE, KC_MPLY, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT, \
-                    KC_LGUI, KC_LALT, KC_LCTRL,KC_LOWER,KC_ENT,  KC_SPC,  KC_RAISE,KC_RCTRL,KC_RALT, KC_RGUI \
+                    NUMPAD,  KC_LALT, KC_LGUI, LOWER,   KC_ENT,  KC_SPC,  RAISE,   KC_RALT, KC_APP,  NUMPAD \
 ),
 
 [_COLEMAK] = LAYOUT( \
-  KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC, \
-  KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSLS, \
-  CTL_ESC, C_M_A,   C_M_R,   C_M_S,   C_M_T,   KC_D,                      KC_H,    C_M_N,   C_M_E,   C_M_I,   C_M_O,   KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MUTE, KC_MPLY, KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT, \
-                    KC_LGUI, KC_LALT, KC_LCTRL,KC_LOWER,KC_ENT,  KC_SPC,  KC_RAISE,KC_RCTRL,KC_RALT, KC_RGUI \
+  _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______, \
+  _______, KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                      KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______, \
+  _______, C_M_A,   C_M_R,   C_M_S,   C_M_T,   KC_D,                      KC_H,    C_M_N,   C_M_E,   C_M_I,   C_M_O,   KC_QUOT, \
+  _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, _______, KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, _______, \
+                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
 [_LOWER] = LAYOUT( \
@@ -47,9 +42,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
-  [_ADJUST] = LAYOUT( \
+[_NUMPAD] = LAYOUT( \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
+  _______, XXXXXXX, KC_7,    KC_8,    KC_9,    KC_MINS,                   XXXXXXX, KC_7,    KC_8,    KC_9,    KC_MINS, _______, \
+  _______, XXXXXXX, KC_4,    KC_5,    KC_6,    KC_PLUS,                   XXXXXXX, KC_4,    KC_5,    KC_6,    KC_PLUS, _______, \
+  _______, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_SLSH, XXXXXXX, XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    KC_SLSH, _______, \
+                    KC_0,    KC_DOT,  _______, _______, _______, _______, KC_0,    KC_DOT,  _______, _______ \
+  ),
+
+[_ADJUST] = LAYOUT( \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
-  RESET,   XXXXXXX, KC_QWRT, KC_CLMK, CG_TOGG, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+  RESET,   XXXXXXX, QWERTY,  COLEMAK, CG_TOGG, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
   XXXXXXX, XXXXXXX, CG_TOGG, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX, \
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX, \
                     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
@@ -103,6 +106,9 @@ static void print_status_narrow(void) {
         case _LOWER:
             oled_write_P(PSTR("Lower"), false);
             break;
+        case _NUMPAD:
+            oled_write_ln_P(PSTR("Nums"), false);
+            break;
         case _ADJUST:
             oled_write_P(PSTR("Adj\n"), false);
             break;
@@ -131,41 +137,20 @@ void oled_task_user(void) {
 
 #endif
 
+layer_state_t layer_state_set_user(layer_state_t state) {
+  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case KC_QWRT:
+        case QWERTY:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_QWERTY);
             }
             return false;
-        case KC_CLMK:
+        case COLEMAK:
             if (record->event.pressed) {
                 set_single_persistent_default_layer(_COLEMAK);
-            }
-            return false;
-        case KC_LOWER:
-            if (record->event.pressed) {
-                layer_on(_LOWER);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            } else {
-                layer_off(_LOWER);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            }
-            return false;
-        case KC_RAISE:
-            if (record->event.pressed) {
-                layer_on(_RAISE);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            } else {
-                layer_off(_RAISE);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
-            }
-            return false;
-        case KC_ADJUST:
-            if (record->event.pressed) {
-                layer_on(_ADJUST);
-            } else {
-                layer_off(_ADJUST);
             }
             return false;
         case KC_PRVWD:

@@ -21,6 +21,7 @@ enum yaunj_keycodes {
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
+#define NUMPAD MO(_NUMPAD)
 
 #define CTL_ESC LCTL_T(KC_ESC)
 #define CTL_INS LCTL(KC_INS)

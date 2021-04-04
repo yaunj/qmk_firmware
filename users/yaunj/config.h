@@ -1,5 +1,9 @@
 #pragma once
 
+/* Make it clear the keyboard is mine :P */
+#undef  MANUFACTURER
+#define MANUFACTURER yaunj
+
 // Global tapping term (default: 200)
 #ifndef TAPPING_TERM
 #define TAPPING_TERM 200

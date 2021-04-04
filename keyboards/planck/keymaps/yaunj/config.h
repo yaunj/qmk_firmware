@@ -18,3 +18,16 @@
                                   SONG(DVORAK_SOUND) \
                                 }
 #endif
+
+// Global tapping term (default: 200)
+#define TAPPING_TERM 200
+
+// Prevent rollover on alphas to accidentally trigger mods
+#define IGNORE_MOD_TAP_INTERRUPT
+
+// Enables rapid switch from tap to hold, disables double tap hold auto repeat
+#define TAPPING_FORCE_HOLD
+#define TAPPING_FORCE_HOLD_PER_KEY
+
+// Apply modifier on keys tapped during a short hold of a modtap
+#define PERMISSIVE_HOLD

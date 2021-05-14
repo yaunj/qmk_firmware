@@ -18,3 +18,6 @@
 
 // Apply modifier on keys tapped during a short hold of a modtap
 #define PERMISSIVE_HOLD
+
+// Only two taps to hold TT layers
+#define TAPPING_TOGGLE 2

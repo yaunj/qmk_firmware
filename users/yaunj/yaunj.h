@@ -19,9 +19,9 @@ enum yaunj_keycodes {
   NEW_SAFE_RANGE,
 };
 
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
-#define NUMPAD MO(_NUMPAD)
+#define LOWER LT(_LOWER, KC_BSPC)
+#define RAISE LT(_RAISE, KC_ENT)
+#define NUMPAD TT(_NUMPAD)
 
 #define CTL_ESC LCTL_T(KC_ESC)
 #define CTL_INS LCTL(KC_INS)
